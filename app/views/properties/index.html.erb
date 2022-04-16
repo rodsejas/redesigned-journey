@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Portfolio</h1>
+<%= link_to "Add new property", new_property_path, class:"btn btn-secondary" %>
+
+<div id="properties">
+  <% @properties.each do |property| %>
+    <div class="card" style="width: 25rem;">
+      <img src="<%= property.image %>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= property.street_address %></h5>
+        <p class="card-text text-secondary"><%= property.suburb %>, <%= property.state %> <%= property.postcode %></p>
+        <%= link_to "Show this property", property, class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

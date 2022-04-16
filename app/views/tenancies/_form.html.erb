@@ -1,0 +1,62 @@
+<%= form_with(model: tenancy) do |form| %>
+  <% if tenancy.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(tenancy.errors.count, "error") %> prohibited this tenancy from being saved:</h2>
+
+      <ul>
+        <% tenancy.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :start_date, style: "display: block" %>
+    <%= form.number_field :start_date %>
+  </div>
+
+  <div>
+    <%= form.label :end_date, style: "display: block" %>
+    <%= form.number_field :end_date %>
+  </div>
+
+  <div>
+    <%= form.label :contractual_basis, style: "display: block" %>
+    <%= form.text_area :contractual_basis %>
+  </div>
+
+  <div>
+    <%= form.label :has_pets, style: "display: block" %>
+    <%= form.check_box :has_pets %>
+  </div>
+
+  <div>
+    <%= form.label :bond_amount, style: "display: block" %>
+    <%= form.number_field :bond_amount %>
+  </div>
+
+  <div>
+    <%= form.label :pays_water, style: "display: block" %>
+    <%= form.text_area :pays_water %>
+  </div>
+
+  <div>
+    <%= form.label :pays_gas, style: "display: block" %>
+    <%= form.text_area :pays_gas %>
+  </div>
+
+  <div>
+    <%= form.label :pays_electricity, style: "display: block" %>
+    <%= form.text_area :pays_electricity %>
+  </div>
+
+  <div>
+    <%= form.label :weekly_rent, style: "display: block" %>
+    <%= form.number_field :weekly_rent %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,81 @@
+<%= form_with(model: property) do |form| %>
+  <% if property.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+        <% property.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :street_address, style: "display: block", class: "form-label" %>
+    <%= form.text_field :street_address, class:"form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :suburb, style: "display: block", class:"form-label" %>
+    <%= form.text_field :suburb, class:"form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :property_type, style: "display: block", class:"form-label" %>
+    <%= form.text_field :property_type, class:"form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block", class:"form-label" %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label :postcode, style: "display: block", class:"form-label" %>
+    <%= form.number_field :postcode %>
+  </div>
+
+  <div>
+    <%= form.label :state, style: "display: block", class:"form-label" %>
+    <%= form.text_field :state, class:"form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :country, style: "display: block", class:"form-label" %>
+    <%= form.text_field :country, class:"form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :lot_size, style: "display: block", class:"form-label" %>
+    <%= form.number_field :lot_size %>
+  </div>
+
+  <div>
+    <%= form.label :bedrooms, style: "display: block", class:"form-label" %>
+    <%= form.number_field :bedrooms %>
+  </div>
+
+  <div>
+    <%= form.label :bathrooms, style: "display: block", class:"form-label" %>
+    <%= form.number_field :bathrooms %>
+  </div>
+
+  <div>
+    <%= form.label :carspaces, style: "display: block", class:"form-label" %>
+    <%= form.number_field :carspaces %>
+  </div>
+
+  <div>
+    <%= form.label :image, style: "display: block", class:"form-label" %>
+    <%= form.text_field :image, class:"form-control" %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+
+
