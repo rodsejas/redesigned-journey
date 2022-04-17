@@ -1,0 +1,19 @@
+<h1>Login</h1>
+
+<%= form_with url: sign_in_path, class:"form" do |f| %>
+
+    <div class="mb-1">
+        <%= f.label :email, class: "form-label" %><br>  
+        <%= f.text_field :email, class: "form-control", placeholder: "tim@apple.com"%><br>  
+    </div>
+
+    <div class="mb-1">
+        <%= f.label :password, class: "form-label" %><br>  
+        <%= f.password_field :password, class: "form-control", placeholder: "Type password"%><br>  
+    </div>
+
+    <div class="d-grid gap-2">
+        <%= f.submit "Sign In", class: "btn btn-primary btn-block" %>
+    </div>
+
+<% end %>

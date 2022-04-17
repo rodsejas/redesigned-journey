@@ -31,9 +31,16 @@
     <%= form.number_field :phone_number %>
   </div>
 
+<!--
   <div>
     <%= form.label :property_id, style: "display: block" %>
     <%= form.number_field :property_id %>
+  </div>
+  -->
+
+  <div>
+    <%= form.label :property_id, style: "display: block" %>
+    <%= form.select :property_id, Property.pluck(:street_address, :id), :include_blank => true %>
   </div>
 
   <div>

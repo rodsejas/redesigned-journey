@@ -2,13 +2,38 @@
 
 <h1>Tenants</h1>
 
-<div id="tenants">
-  <% @tenants.each do |tenant| %>
-    <%= render tenant %>
-    <p>
-      <%= link_to "Show this tenant", tenant %>
-    </p>
-  <% end %>
-</div>
-
 <%= link_to "New tenant", new_tenant_path %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Associated Rental</th>
+      <th scope="col">Tenancy Details</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tenants.each do |tenant| %>
+    <tr>
+      <td><%= tenant.first_name %></td>
+      <td><%= tenant.last_name %></td>
+      <td><%= tenant.email_address %></td>
+      <td><%= tenant.phone_number %></td>
+      <% if tenant.property.present? %>
+        <td><%= link_to tenant.property.street_address, tenant.property %></td>
+      <% else %>
+        <td></td>
+      <% end %>
+      <td>Tenancy link here</td>
+      <td><%= link_to "Edit", edit_tenant_path(tenant) %></td>
+      <td><%= button_to "Delete", tenant, method: :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

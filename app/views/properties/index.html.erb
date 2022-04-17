@@ -1,7 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Portfolio</h1>
-<%= link_to "Add new property", new_property_path, class:"btn btn-secondary" %>
+<%= link_to "Add new property", new_property_path, class:"btn btn-outline-success" %>
+
+
 
 <div id="properties">
   <% @properties.each do |property| %>
@@ -15,3 +17,4 @@
     </div>
   <% end %>
 </div>
+

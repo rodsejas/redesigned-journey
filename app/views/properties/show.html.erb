@@ -1,8 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green"><%= notice %></p> <!-- Change notice to Bootstrap-->
+
+<h1>
+  <%= @property.street_address %>
+  
+</h1>
 
 <%= render @property %>
 
-<p><%= @property.suburb %></p>
+
 
 <iframe
   width="600"
@@ -14,11 +19,9 @@
   src="https://www.google.com/maps/embed/v1/streetview?key=<%=ENV["MAPS_API_KEY"]%>&location=<%=@property.latitude%>,<%=@property.longitude%>&heading=210&pitch=10&fov=35">
 </iframe>
 
-
-
 <div>
   <%= link_to "Edit this property", edit_property_path(@property), class:"btn btn-secondary" %>
   <%= link_to "Back to properties", properties_path, class:"btn btn-secondary" %>
 
-  <%= button_to "Destroy this property", @property, method: :delete %>
+  <%= button_to "Delete", @property, method: :delete, :data => { :confirm => 'Are you sure?' }, class:"btn btn-outline-danger" %>
 </div>

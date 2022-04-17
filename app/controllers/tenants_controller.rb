@@ -4,6 +4,7 @@ class TenantsController < ApplicationController
   # GET /tenants or /tenants.json
   def index
     @tenants = Tenant.all
+    # @tenants = Current.user.properties
   end
 
   # GET /tenants/1 or /tenants/1.json

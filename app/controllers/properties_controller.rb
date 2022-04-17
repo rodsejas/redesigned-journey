@@ -1,9 +1,11 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: %i[ show edit update destroy ]
+  before_action :check_for_login
 
   # GET /properties or /properties.json
   def index
-    @properties = Property.all
+    # @properties = Property.all
+    @properties = Current.user.properties
   end
 
   # GET /properties/1 or /properties/1.json
@@ -22,6 +24,7 @@ class PropertiesController < ApplicationController
   # POST /properties or /properties.json
   def create
     @property = Property.new(property_params)
+    Current.user.properties << @property
 
     respond_to do |format|
       if @property.save
