@@ -44,4 +44,11 @@
     <%= tenancy.weekly_rent %>
   </p>
 
+  <p>
+    <strong>Tenant:</strong>
+    <% tenancy.tenants.each do |t| %>
+    <%= t.first_name %>
+    <% end %>
+  </p>
+
 </div>

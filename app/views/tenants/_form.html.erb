@@ -40,12 +40,12 @@
 
   <div>
     <%= form.label :property_id, style: "display: block" %>
-    <%= form.select :property_id, Property.pluck(:street_address, :id), :include_blank => true %>
+    <%= form.select :property_id, Current.user.properties.pluck(:street_address, :id), :include_blank => true %>
   </div>
 
   <div>
-    <%= form.label :tenancy_id, style: "display: block" %>
-    <%= form.number_field :tenancy_id %>
+    <%= form.label :tenancy, style: "display: block" %>
+    <%= form.select :tenancy_id, Current.user.tenancies.pluck(:name, :id), :include_blank => true %>
   </div>
 
   <div>

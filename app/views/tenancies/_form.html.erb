@@ -12,6 +12,11 @@
   <% end %>
 
   <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_area :name %>
+  </div>
+
+  <div>
     <%= form.label :start_date, style: "display: block" %>
     <%= form.number_field :start_date %>
   </div>
@@ -55,6 +60,8 @@
     <%= form.label :weekly_rent, style: "display: block" %>
     <%= form.number_field :weekly_rent %>
   </div>
+
+
 
   <div>
     <%= form.submit %>

@@ -3,8 +3,8 @@ class TenantsController < ApplicationController
 
   # GET /tenants or /tenants.json
   def index
-    @tenants = Tenant.all
-    # @tenants = Current.user.properties
+    # @tenants = Tenant.all
+    @tenants = Current.user.tenants
   end
 
   # GET /tenants/1 or /tenants/1.json
@@ -14,6 +14,7 @@ class TenantsController < ApplicationController
   # GET /tenants/new
   def new
     @tenant = Tenant.new
+    
   end
 
   # GET /tenants/1/edit
@@ -23,6 +24,7 @@ class TenantsController < ApplicationController
   # POST /tenants or /tenants.json
   def create
     @tenant = Tenant.new(tenant_params)
+    Current.user.tenants << @tenant
 
     respond_to do |format|
       if @tenant.save
@@ -66,6 +68,6 @@ class TenantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tenant_params
-      params.require(:tenant).permit(:first_name, :last_name, :email_address, :phone_number, :property_id, :tenancy_id)
+      params.require(:tenant).permit(:first_name, :last_name, :email_address, :phone_number, :property_id, :tenancy_id, :user_id)
     end
 end

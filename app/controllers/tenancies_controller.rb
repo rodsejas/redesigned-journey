@@ -4,7 +4,8 @@ class TenanciesController < ApplicationController
 
   # GET /tenancies or /tenancies.json
   def index
-    @tenancies = Tenancy.all
+    # @tenancies = Tenancy.all
+    @tenancies = Current.user.tenancies.includes(:tenants)
   end
 
   # GET /tenancies/1 or /tenancies/1.json
@@ -23,6 +24,7 @@ class TenanciesController < ApplicationController
   # POST /tenancies or /tenancies.json
   def create
     @tenancy = Tenancy.new(tenancy_params)
+    Current.user.tenancies << @tenancy
 
     respond_to do |format|
       if @tenancy.save
@@ -66,6 +68,6 @@ class TenanciesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tenancy_params
-      params.require(:tenancy).permit(:start_date, :end_date, :contractual_basis, :has_pets, :bond_amount, :pays_water, :pays_gas, :pays_electricity, :weekly_rent)
+      params.require(:tenancy).permit(:start_date, :end_date, :contractual_basis, :has_pets, :bond_amount, :pays_water, :pays_gas, :pays_electricity, :weekly_rent, :user_id, :name)
     end
 end

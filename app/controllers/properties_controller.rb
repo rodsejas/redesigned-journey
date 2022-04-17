@@ -10,6 +10,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1 or /properties/1.json
   def show
+    @property = Property.joins(:tenants).where(tenants:{property_id: params[:id]}).take
   end
 
   # GET /properties/new
