@@ -9,8 +9,7 @@ A basic web app for property managers. A user can create an account and add/main
 This app was developed to strengthen my recent learnings in building backend CRUD systems, integrating gem API's, using front-end frameworks, and finally, deployment to a server.
 
 ## Screenshots
-
-Include logo/demo screenshot etc.
+![screenshot](https://i.ibb.co/CzzQccx/screenshot.png "Screenshot")
 
 ## Tech/framework used
 
