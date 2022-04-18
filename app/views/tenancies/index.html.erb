@@ -1,22 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<% if notice.present? %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
 
 <h1>Tenancies</h1>
 
-<div id="tenancies">
-  <% @tenancies.each do |tenancy| %>
-    <%= render tenancy %>
-    <p>
-      <%= link_to "Show this tenancy", tenancy %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New tenancy", new_tenancy_path %>
-
+<%= link_to "Create new tenancy", new_tenancy_path, class:"btn btn-outline-success"  %>
 
 <table class="table table-striped">
   <thead>
     <tr>
+      <th scope="col">Agreement Name</th>
       <th scope="col">Start Date</th>
       <th scope="col">End Date</th>
       <th scope="col">Contractual Basis</th>
@@ -25,6 +20,7 @@
       <th scope="col">Pays water</th>
       <th scope="col">Pays gas</th>
       <th scope="col">Pays electricity</th>
+      <th scope="col">Tenant</th>
       <th scope="col"></th>
       <th scope="col"></th>
     </tr>
@@ -32,6 +28,7 @@
   <tbody>
     <% @tenancies.each do |tenancy| %>
     <tr>
+      <td><%= tenancy.name %></td>
       <td><%= tenancy.start_date %></td>
       <td><%= tenancy.end_date %></td>
       <td><%= tenancy.contractual_basis %></td>
@@ -41,8 +38,14 @@
       <td><%= tenancy.pays_gas %></td>
       <td><%= tenancy.pays_electricity %></td>
       
-      <td><%= link_to "Edit", edit_tenancy_path(tenancy) %></td>
-      <td><%= button_to "Delete", tenancy, method: :delete %></td>
+      <td>
+        <% tenancy.tenants.each do |t| %>
+        <%= t.first_name %>
+        <% end %>
+      </td>
+      
+      <td><%= link_to "Edit", edit_tenancy_path(tenancy), class:"btn btn-primary" %></td>
+      <td><%= button_to "Delete", tenancy, method: :delete, class:"btn btn-outline-danger" %></td>
     </tr>
     <% end %>
   </tbody>

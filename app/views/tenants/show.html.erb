@@ -1,12 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<% if notice.present? %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
+<h1>Tenant Record</h1>
 
 <%= render @tenant %>
 
 <%# <%= link_to @tenant.property.street_address, @tenant.property %>
 
 <div>
-  <%= link_to "Edit this tenant", edit_tenant_path(@tenant) %> |
-  <%= link_to "Back to tenants", tenants_path %>
+  <%= link_to "Edit this tenant", edit_tenant_path(@tenant), class:"btn btn-secondary" %>
+  <%= link_to "Back to tenants", tenants_path, class:"btn btn-secondary" %>
 
-  <%= button_to "Destroy this tenant", @tenant, method: :delete %>
+  <%= button_to "Delete", @tenant, method: :delete, class:"btn btn-outline-danger" %>
 </div>
+

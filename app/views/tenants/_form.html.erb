@@ -13,42 +13,35 @@
 
   <div>
     <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_area :first_name %>
+    <%= form.text_field :first_name, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_area :last_name %>
+    <%= form.text_field :last_name, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :email_address, style: "display: block" %>
-    <%= form.text_area :email_address %>
+    <%= form.text_field :email_address, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :phone_number, style: "display: block" %>
-    <%= form.text_area :phone_number %>
+    <%= form.text_field :phone_number, class:"form-control" %>
   </div>
-
-<!--
-  <div>
-    <%= form.label :property_id, style: "display: block" %>
-    <%= form.number_field :property_id %>
-  </div>
-  -->
 
   <div>
     <%= form.label :property_id, style: "display: block" %>
-    <%= form.select :property_id, Current.user.properties.pluck(:street_address, :id), :include_blank => true %>
+    <%= form.select :property_id, Current.user.properties.pluck(:street_address, :id), :include_blank => true, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :tenancy, style: "display: block" %>
-    <%= form.select :tenancy_id, Current.user.tenancies.pluck(:name, :id), :include_blank => true %>
+    <%= form.select :tenancy_id, Current.user.tenancies.pluck(:name, :id), :include_blank => true, class:"form-control" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit :Submit, class: 'btn btn-success' %>
   </div>
 <% end %>

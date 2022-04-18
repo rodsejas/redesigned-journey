@@ -1,8 +1,12 @@
-<p style="color: green"><%= notice %></p>
+<% if notice.present? %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
 
 <h1>Tenants</h1>
 
-<%= link_to "New tenant", new_tenant_path %>
+<%= link_to "Create new tenant", new_tenant_path, class:"btn btn-outline-success" %>
 
 <table class="table table-striped">
   <thead>
@@ -24,7 +28,7 @@
       <td><%= tenant.last_name %></td>
       <td><%= tenant.email_address %></td>
       <td><%= tenant.phone_number %></td>
-      
+
       <% if tenant.property.present? %>
         <td><%= link_to tenant.property.street_address, tenant.property %></td>
       <% else %>
@@ -37,8 +41,8 @@
         <td></td>
       <% end %>
 
-      <td><%= link_to "Edit", edit_tenant_path(tenant) %></td>
-      <td><%= button_to "Delete", tenant, method: :delete %></td>
+      <td><%= link_to "Edit", edit_tenant_path(tenant), class:"btn btn-primary" %></td>
+      <td><%= button_to "Delete", tenant, method: :delete, class:"btn btn-outline-danger" %></td>
     </tr>
     <% end %>
   </tbody>

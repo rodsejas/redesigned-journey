@@ -55,7 +55,7 @@ class TenanciesController < ApplicationController
     @tenancy.destroy
 
     respond_to do |format|
-      format.html { redirect_to tenancies_url, notice: "Tenancy was successfully destroyed." }
+      format.html { redirect_to tenancies_url, notice: "Tenancy was successfully deleted." }
       format.json { head :no_content }
     end
   end

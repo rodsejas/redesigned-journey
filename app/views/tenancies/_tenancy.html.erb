@@ -1,4 +1,10 @@
 <div id="<%= dom_id tenancy %>">
+
+  <p>
+    <strong>Agreement Name:</strong>
+    <%= tenancy.name %>
+  </p>
+
   <p>
     <strong>Start date:</strong>
     <%= tenancy.start_date.strftime '%B %e, %Y' unless tenancy.start_date.nil? %>
