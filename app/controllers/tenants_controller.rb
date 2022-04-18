@@ -1,6 +1,6 @@
 class TenantsController < ApplicationController
   before_action :set_tenant, only: %i[ show edit update destroy ]
-
+  before_action :check_for_login
   # GET /tenants or /tenants.json
   def index
     # @tenants = Tenant.all

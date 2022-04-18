@@ -18,17 +18,18 @@
 
   <div>
     <%= form.label :start_date, style: "display: block" %>
-    <%= form.number_field :start_date %>
+    <%= form.text_field :start_date, :placeholder => 'YYYY-MM-DD' %>
   </div>
 
   <div>
     <%= form.label :end_date, style: "display: block" %>
-    <%= form.number_field :end_date %>
+    <%= form.text_field :end_date, :placeholder => 'YYYY-MM-DD' %>
   </div>
 
   <div>
     <%= form.label :contractual_basis, style: "display: block" %>
-    <%= form.text_area :contractual_basis %>
+    <%= form.select :contractual_basis, ['Annual', '6-monthly', 'Month-to-month'], :include_blank => true  %>
+
   </div>
 
   <div>
@@ -40,20 +41,20 @@
     <%= form.label :bond_amount, style: "display: block" %>
     <%= form.number_field :bond_amount %>
   </div>
-
+  
   <div>
     <%= form.label :pays_water, style: "display: block" %>
-    <%= form.text_area :pays_water %>
+    <%= form.select :pays_water, ['Owner', 'Tenant'], :include_blank => true  %>
   </div>
 
   <div>
     <%= form.label :pays_gas, style: "display: block" %>
-    <%= form.text_area :pays_gas %>
+    <%= form.select :pays_gas, ['Owner', 'Tenant'], :include_blank => true  %>
   </div>
 
   <div>
     <%= form.label :pays_electricity, style: "display: block" %>
-    <%= form.text_area :pays_electricity %>
+    <%= form.select :pays_electricity, ['Owner', 'Tenant'], :include_blank => true  %>
   </div>
 
   <div>

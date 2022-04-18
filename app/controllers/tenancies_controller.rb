@@ -1,5 +1,5 @@
 class TenanciesController < ApplicationController
-  
+  before_action :check_for_login
   before_action :set_tenancy, only: %i[ show edit update destroy ]
 
   # GET /tenancies or /tenancies.json

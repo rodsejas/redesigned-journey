@@ -56,30 +56,12 @@
     <%= property.carspaces %>
   </p>
 
+<!-- Keep URL hidden after form
   <p>
     <strong>Image:</strong>
     <%= property.image %>
   </p>
+<---->
 
-<!-- add if present -->
-    <strong>Tenant:</strong>
-  <%= property.tenants.first.first_name %>
 
 </div>
-
-<!--
-<div id="<%= dom_id property %>">
-
-<div class="card" style="width: 25rem;">
-  <img src="https://i2.au.reastatic.net/800x600-format=webp/0f132aafb31391f5bd06ac72fcc454b6580557bc7d73d4f9628e96d442e8ff9f/main.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"><%= property.street_address %></h5>
-    <p class="card-text"><%= property.state %>, <%= property.postcode %>.</p>
-    <%= link_to "" %>
-    <%= link_to "Show this property", property, class: "btn btn-primary" %>
-    <a href="#" class="btn btn-primary">More Details</a>
-  </div>
-</div>
-
-</div>
--->

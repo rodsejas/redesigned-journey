@@ -1,12 +1,12 @@
 <div id="<%= dom_id tenancy %>">
   <p>
     <strong>Start date:</strong>
-    <%= tenancy.start_date %>
+    <%= tenancy.start_date.strftime '%B %e, %Y' unless tenancy.start_date.nil? %>
   </p>
 
   <p>
     <strong>End date:</strong>
-    <%= tenancy.end_date %>
+    <%= tenancy.end_date.strftime '%B %e, %Y' unless tenancy.end_date.nil? %>
   </p>
 
   <p>
@@ -21,7 +21,7 @@
 
   <p>
     <strong>Bond amount:</strong>
-    <%= tenancy.bond_amount %>
+    $<%= tenancy.bond_amount %>
   </p>
 
   <p>

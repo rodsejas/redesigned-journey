@@ -24,12 +24,19 @@
       <td><%= tenant.last_name %></td>
       <td><%= tenant.email_address %></td>
       <td><%= tenant.phone_number %></td>
+      
       <% if tenant.property.present? %>
         <td><%= link_to tenant.property.street_address, tenant.property %></td>
       <% else %>
         <td></td>
       <% end %>
-      <td>Tenancy link here</td>
+
+      <% if tenant.tenancy.present? %>
+        <td><%= link_to tenant.tenancy.name, tenant.tenancy %></td>
+      <% else %>
+        <td></td>
+      <% end %>
+
       <td><%= link_to "Edit", edit_tenant_path(tenant) %></td>
       <td><%= button_to "Delete", tenant, method: :delete %></td>
     </tr>

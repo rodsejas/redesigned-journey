@@ -35,12 +35,26 @@
 
   <div>
     <%= form.label :postcode, style: "display: block", class:"form-label" %>
-    <%= form.number_field :postcode %>
+    <%= form.number_field :postcode, class:"form-control" %>
   </div>
 
+<!-- 
   <div>
     <%= form.label :state, style: "display: block", class:"form-label" %>
     <%= form.text_field :state, class:"form-control" %>
+  </div>
+-->
+
+  <div>
+    <%= form.label :state, style: "display: block" %>
+    <%= form.select :state, options_for_select([
+      ["Select One", ""], 
+      "NSW", 
+      "QLD", 
+      "VIC", 
+      "SA", 
+      "WA"]), 
+      {}, { class: "form form-group form-control" } %>
   </div>
 
   <div>
@@ -50,22 +64,28 @@
 
   <div>
     <%= form.label :lot_size, style: "display: block", class:"form-label" %>
-    <%= form.number_field :lot_size %>
+
+    <div class="input-group mb-3">
+    <span class="input-group-text">sq. metres</span>
+
+    <%= form.number_field :lot_size, class:"form-control" %>
+    </div>
   </div>
+
 
   <div>
     <%= form.label :bedrooms, style: "display: block", class:"form-label" %>
-    <%= form.number_field :bedrooms %>
+    <%= form.number_field :bedrooms, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :bathrooms, style: "display: block", class:"form-label" %>
-    <%= form.number_field :bathrooms %>
+    <%= form.number_field :bathrooms, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :carspaces, style: "display: block", class:"form-label" %>
-    <%= form.number_field :carspaces %>
+    <%= form.number_field :carspaces, class:"form-control" %>
   </div>
 
   <div>

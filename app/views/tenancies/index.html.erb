@@ -12,3 +12,38 @@
 </div>
 
 <%= link_to "New tenancy", new_tenancy_path %>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Start Date</th>
+      <th scope="col">End Date</th>
+      <th scope="col">Contractual Basis</th>
+      <th scope="col">Pets?</th>
+      <th scope="col">Bond Amount</th>
+      <th scope="col">Pays water</th>
+      <th scope="col">Pays gas</th>
+      <th scope="col">Pays electricity</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tenancies.each do |tenancy| %>
+    <tr>
+      <td><%= tenancy.start_date %></td>
+      <td><%= tenancy.end_date %></td>
+      <td><%= tenancy.contractual_basis %></td>
+      <td><%= tenancy.has_pets %></td>
+      <td><%= tenancy.bond_amount %></td>
+      <td><%= tenancy.pays_water %></td>
+      <td><%= tenancy.pays_gas %></td>
+      <td><%= tenancy.pays_electricity %></td>
+      
+      <td><%= link_to "Edit", edit_tenancy_path(tenancy) %></td>
+      <td><%= button_to "Delete", tenancy, method: :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
